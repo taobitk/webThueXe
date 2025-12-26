@@ -75,7 +75,10 @@
       -webkit-tap-highlight-color: transparent;
       padding-bottom: env(safe-area-inset-bottom);
     }
-
+    /* Hiệu ứng mờ dần khi chuyển ảnh */
+    .carousel-image {
+      transition: opacity 0.5s ease-in-out;
+    }
     /* Smooth Reveal Animation */
     .reveal {
       opacity: 0;
@@ -219,6 +222,73 @@
     </div>
   </div>
 </section>
+<section id="vehicles" class="py-12 md:py-20 bg-white">
+  <div class="max-w-6xl mx-auto mobile-container">
+    <div class="text-center mb-10 reveal">
+      <h2 class="text-2xl md:text-4xl font-bold text-forest-900 mb-2">Bảng Giá & Các Dòng Xe</h2>
+      <p class="text-forest-600">Lựa chọn chiếc xe ưng ý cho hành trình của bạn</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+
+      <div class="flex flex-col h-full">
+        <h3 class="text-center text-xl font-bold text-forest-800 mb-4 uppercase bg-forest-50 py-2 rounded-lg">🛵 Xe Ga - 130k/ngày</h3>
+        <div class="bg-white rounded-3xl shadow-xl border border-forest-100 overflow-hidden relative group flex-1 flex flex-col">
+          <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center overflow-hidden flex-shrink-0">
+            <div class="absolute inset-0 flex items-center justify-center text-gray-300"><i data-lucide="image" class="w-10 h-10"></i></div>
+            <img id="img-ga" src="" alt="Xe Ga Ninh Bình" class="carousel-image w-full h-full object-contain p-4 relative z-10 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute top-3 right-3 z-20 bg-yellow-400 text-forest-900 font-bold px-3 py-1.5 rounded-lg shadow-md text-base border-2 border-white">
+              <span id="price-ga">---</span>
+            </div>
+          </div>
+          <div class="bg-forest-50/50 p-4 flex items-center justify-between border-t border-forest-100 flex-1">
+            <div>
+              <h4 id="name-ga" class="text-lg font-bold text-forest-800">---</h4>
+              <p class="text-xs text-forest-600 flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3 text-green-500"></i> Cốp rộng, dễ đi</p>
+            </div>
+            <div class="flex gap-1.5">
+              <button id="prev-btn-ga" class="w-9 h-9 bg-white rounded-full shadow flex items-center justify-center text-forest-600 hover:bg-forest-600 hover:text-white transition-colors active:scale-95 border border-forest-100"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+              <button id="next-btn-ga" class="w-9 h-9 bg-white rounded-full shadow flex items-center justify-center text-forest-600 hover:bg-forest-600 hover:text-white transition-colors active:scale-95 border border-forest-100"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+            </div>
+          </div>
+          <div class="h-1 bg-gray-200 w-full mt-auto"><div id="progress-ga" class="h-full bg-forest-500 w-0 transition-all duration-[3000ms] ease-linear"></div></div>
+        </div>
+      </div>
+
+      <div class="flex flex-col h-full">
+        <h3 class="text-center text-xl font-bold text-forest-800 mb-4 uppercase bg-forest-50 py-2 rounded-lg">🏍️ Xe Số - 100k/ngày</h3>
+        <div class="bg-white rounded-3xl shadow-xl border border-forest-100 overflow-hidden relative group flex-1 flex flex-col">
+          <div class="relative aspect-[4/3] bg-gray-50 flex items-center justify-center overflow-hidden flex-shrink-0">
+            <div class="absolute inset-0 flex items-center justify-center text-gray-300"><i data-lucide="image" class="w-10 h-10"></i></div>
+            <img id="img-so" src="" alt="Xe Số Ninh Bình" class="carousel-image w-full h-full object-contain p-4 relative z-10 transition-transform duration-700 hover:scale-105" />
+            <div class="absolute top-3 right-3 z-20 bg-yellow-400 text-forest-900 font-bold px-3 py-1.5 rounded-lg shadow-md text-base border-2 border-white">
+              <span id="price-so">---</span>
+            </div>
+          </div>
+          <div class="bg-forest-50/50 p-4 flex items-center justify-between border-t border-forest-100 flex-1">
+            <div>
+              <h4 id="name-so" class="text-lg font-bold text-forest-800">---</h4>
+              <p class="text-xs text-forest-600 flex items-center gap-1"><i data-lucide="check-circle" class="w-3 h-3 text-green-500"></i> Khỏe, tiết kiệm xăng</p>
+            </div>
+            <div class="flex gap-1.5">
+              <button id="prev-btn-so" class="w-9 h-9 bg-white rounded-full shadow flex items-center justify-center text-forest-600 hover:bg-forest-600 hover:text-white transition-colors active:scale-95 border border-forest-100"><i data-lucide="chevron-left" class="w-5 h-5"></i></button>
+              <button id="next-btn-so" class="w-9 h-9 bg-white rounded-full shadow flex items-center justify-center text-forest-600 hover:bg-forest-600 hover:text-white transition-colors active:scale-95 border border-forest-100"><i data-lucide="chevron-right" class="w-5 h-5"></i></button>
+            </div>
+          </div>
+          <div class="h-1 bg-gray-200 w-full mt-auto"><div id="progress-so" class="h-full bg-forest-500 w-0 transition-all duration-[3000ms] ease-linear"></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mt-10 text-center reveal">
+      <a href="tel:0914512777" class="inline-flex items-center gap-2 text-forest-700 font-semibold hover:text-forest-900 underline underline-offset-4">
+        <i data-lucide="phone" class="w-4 h-4"></i> Tư vấn chọn xe phù hợp (Miễn phí)
+      </a>
+    </div>
+  </div>
+</section>
+
 
 <!-- SOLUTION SECTION -->
 <section id="booking" class="py-12 md:py-24 mobile-container bg-white overflow-hidden">
@@ -227,7 +297,7 @@
 
       <div class="w-full lg:w-1/2 order-2 lg:order-1 reveal">
         <div class="relative rounded-2xl overflow-hidden shadow-xl md:rotate-2 md:hover:rotate-0 transition-transform duration-500">
-          <img loading="lazy" src="anh.jpg" alt="Giao xe máy tận nơi Ninh Bình" class="w-full h-auto object-cover aspect-[4/3]"/>
+          <img loading="lazy" src="anh/anh.jpg" alt="Giao xe máy tận nơi Ninh Bình" class="w-full h-auto object-cover aspect-[4/3]"/>
           <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-6">
             <p class="text-white font-bold flex items-center gap-2">
               <i data-lucide="check-circle-2" class="text-green-400 w-5 h-5"></i> Sẵn sàng phục vụ 24/7
@@ -445,12 +515,108 @@
 </a>
 
 <!-- Scripts -->
-<script>
-  // Initialize Icons
-  document.addEventListener("DOMContentLoaded", () => {
-    lucide.createIcons();
 
-    // Reveal Animation Observer
+<script>
+  // 1. DỮ LIỆU XE (Chia làm 2 nhóm riêng)
+  const vehiclesData = {
+    ga: [ // Danh sách Xe Ga
+      { src: 'anh/Vision.png', name: 'Honda Vision (Đời Mới)', price: '130.000đ' },
+      { src: 'anh/air_blade.jpg', name: 'Honda Air Blade', price: '130.000đ' },
+      { src: 'anh/Lead.jpg', name: 'Honda Lead (Cốp Rộng)', price: '130.000đ' },
+      { src: 'anh/Lead2.jpg', name: 'Honda Lead (Màu Mới)', price: '130.000đ' }
+    ],
+    so: [ // Danh sách Xe Số
+      { src: 'anh/Wave_alpha.jpg', name: 'Honda Wave Alpha', price: '100.000đ' },
+      { src: 'anh/Wave_RSX.jpg', name: 'Honda Wave RSX', price: '100.000đ' }
+    ]
+  };
+
+  const slideTime = 3000; // Thời gian chuyển ảnh: 3 giây
+
+  // 2. HÀM KHỞI TẠO CAROUSEL (Dùng chung cho cả 2 loại)
+  // suffix: là đuôi định danh ('ga' hoặc 'so')
+  // dataList: là mảng dữ liệu tương ứng
+  function setupCarousel(suffix, dataList) {
+    let currentIndex = 0;
+    let intervalId;
+
+    // Lấy các phần tử HTML theo ID tương ứng
+    const els = {
+      img: document.getElementById(`img-${suffix}`),
+      name: document.getElementById(`name-${suffix}`),
+      price: document.getElementById(`price-${suffix}`),
+      progress: document.getElementById(`progress-${suffix}`),
+      nextBtn: document.getElementById(`next-btn-${suffix}`),
+      prevBtn: document.getElementById(`prev-btn-${suffix}`),
+    };
+
+    // Hàm cập nhật giao diện
+    function updateView() {
+      const item = dataList[currentIndex];
+
+      // Reset thanh thời gian & làm mờ ảnh
+      els.progress.style.transition = 'none';
+      els.progress.style.width = '0%';
+      els.img.style.opacity = 0;
+
+      setTimeout(() => {
+        // Cập nhật nội dung
+        els.img.src = item.src;
+        els.name.textContent = item.name;
+        els.price.textContent = item.price;
+
+        // Hiện ảnh lại
+        els.img.style.opacity = 1;
+
+        // Chạy thanh thời gian
+        setTimeout(() => {
+          els.progress.style.transition = `width ${slideTime}ms linear`;
+          els.progress.style.width = '100%';
+        }, 50);
+      }, 200); // Đợi 200ms hiệu ứng mờ
+    }
+
+    // Chuyển ảnh tiếp theo
+    function next() {
+      currentIndex = (currentIndex + 1) % dataList.length;
+      updateView();
+      resetTimer();
+    }
+
+    // Quay lại ảnh trước
+    function prev() {
+      currentIndex = (currentIndex - 1 + dataList.length) % dataList.length;
+      updateView();
+      resetTimer();
+    }
+
+    // Reset bộ đếm khi người dùng bấm nút thủ công
+    function resetTimer() {
+      clearInterval(intervalId);
+      intervalId = setInterval(next, slideTime);
+    }
+
+    // Gán sự kiện click cho các nút
+    if(els.nextBtn) els.nextBtn.addEventListener('click', next);
+    if(els.prevBtn) els.prevBtn.addEventListener('click', prev);
+
+    // Bắt đầu chạy
+    updateView(); // Chạy lần đầu
+    intervalId = setInterval(next, slideTime); // Tự động chạy
+  }
+
+  // 3. KHỞI CHẠY KHI TRANG TẢI XONG
+  document.addEventListener("DOMContentLoaded", () => {
+    // Khởi tạo icons Lucide
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+
+    // === Kích hoạt 2 Carousel riêng biệt ===
+    setupCarousel('ga', vehiclesData.ga); // Kích hoạt slide Xe Ga
+    setupCarousel('so', vehiclesData.so); // Kích hoạt slide Xe Số
+
+    // --- Hiệu ứng cuộn trang (Reveal Animation) ---
     const observerOptions = {
       threshold: 0.15,
       rootMargin: "0px 0px -40px 0px"
