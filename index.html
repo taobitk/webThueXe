@@ -79,6 +79,21 @@
     .carousel-image {
       transition: opacity 0.5s ease-in-out;
     }
+    /* CSS MỚI: Hiệu ứng Siêu Mượt (Fade + Scale + Blur) */
+    .carousel-image {
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Chuyển động mượt như lụa */
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+      backface-visibility: hidden; /* Giúp mượt hơn trên trình duyệt Mobile */
+    }
+
+    /* Trạng thái khi ảnh đang đổi */
+    .carousel-image.changing {
+      opacity: 0;
+      transform: scale(1.05); /* Phóng to nhẹ khi ẩn đi tạo chiều sâu */
+      filter: blur(8px); /* Làm nhòe ảnh cũ */
+    }
     /* Smooth Reveal Animation */
     .reveal {
       opacity: 0;
@@ -145,9 +160,6 @@
           <i data-lucide="bike" class="w-5 h-5"></i>
           ĐẶT XE NGAY
         </a>
-        <a href="#about" class="w-full md:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 active:bg-white/5 backdrop-blur-md text-white font-bold rounded-xl transition-all border border-white/30 active:scale-95 text-center">
-          Xem Chi Tiết
-        </a>
       </div>
     </div>
   </div>
@@ -203,25 +215,81 @@
         </div>
       </div>
     </div>
-
-    <div class="reveal">
-      <div class="bg-forest-100 rounded-2xl p-6 md:p-12 flex flex-col items-center text-center gap-4 border border-forest-200">
-        <div class="bg-white p-3 rounded-full shadow-md text-forest-600">
-          <i data-lucide="map-pin-check" class="w-8 h-8"></i>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold text-forest-800 mb-2">Vấn đề thuê xe cũng nan giải?</h3>
-          <p class="text-forest-700 text-sm mb-4">
-            Hỏi lễ tân thì hết xe, đi bộ tìm thì xa, Google thì không biết chỗ nào uy tín?
-          </p>
-          <div class="inline-block bg-forest-600 text-white px-5 py-2.5 rounded-lg font-bold text-sm shadow-md animate-pulse">
-            👉 Giải pháp: Gọi Ship Xe Tận Nơi!
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
+
+<!--vấn đề 2-->
+<section class="py-16 md:py-24 mobile-container bg-white">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-12 reveal">
+      <h2 class="text-3xl md:text-5xl font-bold text-forest-900 mb-6 leading-tight">
+        Bạn muốn tự do <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">"Bay Nhảy" Khắp Nơi?</span>
+      </h2>
+      <p class="text-gray-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto">
+        Hãy tưởng tượng cảm giác cầm lái, gió tạt vào mặt, thích là đi, mệt là nghỉ.
+        Đó mới là <span class="font-bold text-forest-700">sự tự do tuyệt đối</span> mà bạn tìm kiếm ở Ninh Bình.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 stagger-container">
+
+      <div class="stagger-item bg-beige-50 p-6 rounded-2xl border border-beige-200 flex items-start gap-4">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-red-500 shadow-sm flex-shrink-0">
+          <i data-lucide="map-x" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-forest-900 text-lg mb-1">Điểm đến quá xa nhau</h3>
+          <p class="text-sm text-gray-600">Tràng An cách Bái Đính cả chục cây số. Đi bộ thì không nổi, đi Taxi thì "xót ví" tiền triệu.</p>
+        </div>
+      </div>
+
+      <div class="stagger-item bg-beige-50 p-6 rounded-2xl border border-beige-200 flex items-start gap-4">
+        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-orange-500 shadow-sm flex-shrink-0">
+          <i data-lucide="search-x" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="font-bold text-forest-900 text-lg mb-1">Thuê xe cũng nan giải?</h3>
+          <p class="text-sm text-gray-600">
+            Đi bộ tìm thì nắng nôi, xa xôi. Tra Google thì mông lung,
+            <span class="font-semibold text-orange-600">không biết chỗ nào uy tín, xe có ngon không?</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="reveal relative">
+      <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-forest-300 animate-bounce">
+        <i data-lucide="arrow-down" class="w-6 h-6"></i>
+      </div>
+
+      <div class="bg-gradient-to-br from-forest-900 to-forest-800 rounded-3xl p-8 md:p-10 text-center text-white shadow-2xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-10 -mb-10 w-32 h-32 bg-yellow-500/10 rounded-full blur-2xl"></div>
+
+        <h3 class="text-xl md:text-2xl font-bold mb-4 uppercase tracking-wide text-forest-200">👉 Giải Pháp Tối Ưu Nhất</h3>
+
+        <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">
+          Gọi Là Ship Xe Tận Nơi!
+        </h2>
+
+        <p class="text-forest-100 text-lg mb-8 max-w-xl mx-auto">
+          Bạn chỉ việc ở yên tại khách sạn (hoặc bất cứ đâu). Xe ngon, mũ sạch, xăng đầy sẽ xuất hiện ngay trước mặt bạn.
+        </p>
+
+        <a href="tel:0914512777" class="inline-flex items-center gap-2 bg-yellow-500 hover:bg-yellow-400 text-forest-950 font-bold py-4 px-10 rounded-full shadow-lg transition-all transform hover:scale-105 hover:shadow-yellow-500/50">
+          <i data-lucide="phone-call" class="w-5 h-5"></i>
+          GỌI NGAY: 0914.512.777
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <section id="vehicles" class="py-12 md:py-20 bg-white">
   <div class="max-w-6xl mx-auto mobile-container">
     <div class="text-center mb-10 reveal">
@@ -517,30 +585,31 @@
 <!-- Scripts -->
 
 <script>
-  // 1. DỮ LIỆU XE (Chia làm 2 nhóm riêng)
+  // 1. DỮ LIỆU XE
   const vehiclesData = {
-    ga: [ // Danh sách Xe Ga
+    ga: [
       { src: 'anh/Vision.png', name: 'Honda Vision (Đời Mới)', price: '130.000đ' },
       { src: 'anh/air_blade.jpg', name: 'Honda Air Blade', price: '130.000đ' },
       { src: 'anh/Lead.jpg', name: 'Honda Lead (Cốp Rộng)', price: '130.000đ' },
       { src: 'anh/Lead2.jpg', name: 'Honda Lead (Màu Mới)', price: '130.000đ' }
     ],
-    so: [ // Danh sách Xe Số
+    so: [
       { src: 'anh/Wave_alpha.jpg', name: 'Honda Wave Alpha', price: '100.000đ' },
       { src: 'anh/Wave_RSX.jpg', name: 'Honda Wave RSX', price: '100.000đ' }
     ]
   };
 
-  const slideTime = 3000; // Thời gian chuyển ảnh: 3 giây
+  // Hàm sinh thời gian ngẫu nhiên từ 7s - 10s
+  function getRandomTime() {
+    return Math.floor(Math.random() * (10000 - 7000 + 1)) + 7000;
+  }
 
-  // 2. HÀM KHỞI TẠO CAROUSEL (Dùng chung cho cả 2 loại)
-  // suffix: là đuôi định danh ('ga' hoặc 'so')
-  // dataList: là mảng dữ liệu tương ứng
+  // 2. HÀM KHỞI TẠO CAROUSEL
   function setupCarousel(suffix, dataList) {
     let currentIndex = 0;
-    let intervalId;
+    let timerId;
 
-    // Lấy các phần tử HTML theo ID tương ứng
+    // Lấy các phần tử HTML
     const els = {
       img: document.getElementById(`img-${suffix}`),
       name: document.getElementById(`name-${suffix}`),
@@ -550,89 +619,88 @@
       prevBtn: document.getElementById(`prev-btn-${suffix}`),
     };
 
-    // Hàm cập nhật giao diện
     function updateView() {
       const item = dataList[currentIndex];
 
-      // Reset thanh thời gian & làm mờ ảnh
+      // === BƯỚC 1: HIỆU ỨNG ẨN ẢNH CŨ ===
+      // Reset thanh thời gian
       els.progress.style.transition = 'none';
       els.progress.style.width = '0%';
-      els.img.style.opacity = 0;
 
+      // Thêm class 'changing' để kích hoạt CSS mượt (Zoom + Blur + FadeOut)
+      els.img.classList.add('changing');
+
+      // Tính thời gian cho lần chạy này
+      const currentDuration = getRandomTime();
+
+      // Đợi 600ms (bằng thời gian transition trong CSS) để ảnh cũ ẩn hẳn đi
       setTimeout(() => {
-        // Cập nhật nội dung
+
+        // === BƯỚC 2: ĐỔI DỮ LIỆU & HIỆN ẢNH MỚI ===
         els.img.src = item.src;
         els.name.textContent = item.name;
         els.price.textContent = item.price;
 
-        // Hiện ảnh lại
-        els.img.style.opacity = 1;
+        // Xóa class 'changing' -> Ảnh mới sẽ hiện dần ra (Zoom In + Focus + FadeIn)
+        els.img.classList.remove('changing');
 
-        // Chạy thanh thời gian
+        // Chạy thanh thời gian (Progress Bar)
+        // Delay nhẹ 50ms để đảm bảo transition hoạt động
         setTimeout(() => {
-          els.progress.style.transition = `width ${slideTime}ms linear`;
+          els.progress.style.transition = `width ${currentDuration}ms linear`;
           els.progress.style.width = '100%';
         }, 50);
-      }, 200); // Đợi 200ms hiệu ứng mờ
+
+        // === BƯỚC 3: HẸN GIỜ LẦN TIẾP THEO ===
+        clearTimeout(timerId);
+        timerId = setTimeout(next, currentDuration);
+
+      }, 600); // Khớp với transition: 0.6s trong CSS
     }
 
-    // Chuyển ảnh tiếp theo
     function next() {
       currentIndex = (currentIndex + 1) % dataList.length;
       updateView();
-      resetTimer();
     }
 
-    // Quay lại ảnh trước
     function prev() {
       currentIndex = (currentIndex - 1 + dataList.length) % dataList.length;
       updateView();
-      resetTimer();
     }
 
-    // Reset bộ đếm khi người dùng bấm nút thủ công
-    function resetTimer() {
-      clearInterval(intervalId);
-      intervalId = setInterval(next, slideTime);
+    // Xử lý nút bấm
+    if(els.nextBtn) {
+      els.nextBtn.addEventListener('click', () => {
+        clearTimeout(timerId);
+        next();
+      });
     }
-
-    // Gán sự kiện click cho các nút
-    if(els.nextBtn) els.nextBtn.addEventListener('click', next);
-    if(els.prevBtn) els.prevBtn.addEventListener('click', prev);
+    if(els.prevBtn) {
+      els.prevBtn.addEventListener('click', () => {
+        clearTimeout(timerId);
+        prev();
+      });
+    }
 
     // Bắt đầu chạy
-    updateView(); // Chạy lần đầu
-    intervalId = setInterval(next, slideTime); // Tự động chạy
+    updateView();
   }
 
-  // 3. KHỞI CHẠY KHI TRANG TẢI XONG
+  // 3. KHỞI CHẠY
   document.addEventListener("DOMContentLoaded", () => {
-    // Khởi tạo icons Lucide
-    if (typeof lucide !== 'undefined') {
-      lucide.createIcons();
-    }
+    if (typeof lucide !== 'undefined') lucide.createIcons();
 
-    // === Kích hoạt 2 Carousel riêng biệt ===
-    setupCarousel('ga', vehiclesData.ga); // Kích hoạt slide Xe Ga
-    setupCarousel('so', vehiclesData.so); // Kích hoạt slide Xe Số
+    setupCarousel('ga', vehiclesData.ga);
+    setupCarousel('so', vehiclesData.so);
 
-    // --- Hiệu ứng cuộn trang (Reveal Animation) ---
-    const observerOptions = {
-      threshold: 0.15,
-      rootMargin: "0px 0px -40px 0px"
-    };
-
+    // Animation cuộn trang
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('active');
       });
-    }, observerOptions);
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
 
-    document.querySelectorAll('.reveal, .stagger-container').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.reveal, .stagger-container').forEach(el => observer.observe(el));
   });
 </script>
 </body>
